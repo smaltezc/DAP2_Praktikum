@@ -76,9 +76,6 @@ public class euclid {
 
     public static boolean hasNums(String text) {
 
-        if (text.matches(".*\\d.*")) {
-            return true;
-        }
-        return false;
+        return text.matches(".*\\d.*");
     }
 }
