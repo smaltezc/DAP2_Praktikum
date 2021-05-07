@@ -4,36 +4,27 @@ public class euclid {
 
     public static void main(String[] args)
     {
-
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         String[] partsOfInput = input.split(" ");
         int laenge = partsOfInput.length;
         if(laenge == 4)
         {
-            if( hasNums(input) )
+            String first = partsOfInput[0];
+            String second = partsOfInput[1];
+            String third = partsOfInput[2];
+            String fourth = partsOfInput[3];
+            if(first.equals("java") && second.equals( "Euclid") && isNumeric(third) && isNumeric(fourth) )
             {
-                String first = partsOfInput[0];
-                String second = partsOfInput[1];
-                if(first.equals("java") && second.equals( "Euclid") )
+                int a = Integer.parseInt(partsOfInput[2]);
+                int b = Integer.parseInt(partsOfInput[3]);
+                if (a > 0 && b > 0)
                 {
-                    int a = Integer.parseInt(partsOfInput[2]);
-                    int b = Integer.parseInt(partsOfInput[3]);
-                    if (a > 0 && b > 0)
-                    {
-                        System.out.println(fnct(a,b));
-                    }
-                    else
-                    {
-                        System.out.println("Falscher Parameter - Nur natuerliche Zahlen sind erlaubt!");
-                        System.out.println("Aufruf mit: java Euclid a b");
-                        System.out.println("Dabei muessen a und b natuerliche Zahlen groesser 0 sein.");
-                        System.out.println("Beispiel: java Euclid 24 896");
-                    }
+                    System.out.println(fnct(a,b));
                 }
                 else
                 {
-                    System.out.println("Falsche Eingabe!");
+                    System.out.println("Falscher Parameter - Nur Zahlen sind erlaubt!");
                     System.out.println("Aufruf mit: java Euclid a b");
                     System.out.println("Dabei muessen a und b natuerliche Zahlen groesser 0 sein.");
                     System.out.println("Beispiel: java Euclid 24 896");
@@ -74,8 +65,12 @@ public class euclid {
         }
     }
 
-    public static boolean hasNums(String text) {
-
-        return text.matches(".*\\d.*");
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
     }
 }
