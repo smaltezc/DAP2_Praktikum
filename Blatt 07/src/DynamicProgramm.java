@@ -21,10 +21,7 @@ public class DynamicProgramm {
 
                 // If weight of current Item is greater than maxWeight
                 // We cannot add that item
-                else if (1 > restTragbar) {
-                    cache[totalItems][restTragbar] = cache[totalItems - 1][restTragbar];
-                    System.out.println("zhhujj");
-                }
+                
                 // Else check the condition of with Item or Without Item
                 // And Store the maximum of both
                 else {
