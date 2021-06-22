@@ -1,36 +1,46 @@
-public class SearchTree {
 
-    public static Node root;
-
-    public static void main(String[] args)
-    {
-        int[] arr = {50,30,20,40,70,60,80};
-
-        SearchTree src = new SearchTree(arr);
-
-        //inOrder(src.root);
-
-    }
-
-    static class Node
-    {
+class SearchTree {
+    class Node {
         int key;
         Node left, right;
 
+        public Node(int item) {
+            key = item;
+            left = right = null;
+        }
     }
 
-    static Node newNode(int data)
-    {
-        Node temp = new Node();
+    public static Node root;
 
-        temp.key = data;
+    SearchTree(int[] array) {
+        root = null;
 
-        temp.left = null;
-        temp.right = null;
-
-        return temp;
+        for(int i:array)
+        {
+            insert(i);
+        }
     }
 
+    void insert(int key) {
+        root = insertKey(root, key);
+    }
+
+    // Insert key in the tree
+    Node insertKey(Node root, int key) {
+        // Return a new node if the tree is empty
+        if (root == null) {
+            root = new Node(key);
+            return root;
+        }
+
+        // Traverse to the right place and insert the node
+        if (key < root.key)
+            root.left = insertKey(root.left, key);
+        else if (key > root.key)
+            root.right = insertKey(root.right, key);
+
+        return root;
+    }
     //Hoehe
     int maxDepth(Node node)
     {
@@ -46,58 +56,6 @@ public class SearchTree {
             else
                 return (rDepth + 1);
         }
-    }
-
-    public SearchTree(int[] array)
-    {
-        root = null;
-
-        root = insert(root, array[0]);
-        for(int i =0; i< array.length-1; i++)
-        {
-            insert(root, array[i+1]);
-        }
-    }
-
-    //public static void add(int value){ insert(root, value);}
-
-    public static Node insert(Node root, int key)
-    {
-
-        Node nwNode = newNode(key);
-
-        Node x = root;
-
-        Node y = null;
-
-        while(x != null)
-        {
-            y = x;
-            if(key < x.key)
-            {
-                x = x.left;
-            }
-            else
-            {
-                x = x.right;
-            }
-        }
-
-        if(y == null)
-        {
-            y = nwNode;
-        }
-        else if (key < y.key)
-        {
-            y.left = nwNode;
-        }
-        else
-        {
-            y.right = nwNode;
-        }
-
-        return y;
-
     }
 
     public static void inOrder(Node root)
@@ -117,16 +75,16 @@ public class SearchTree {
     {
         if (root != null) {
             System.out.print(root.key+ " ");
-            inOrder(root.left);
-            inOrder(root.right);
+            preOrder(root.left);
+            preOrder(root.right);
         }
     }
 
     public static void postOrder(Node root)
     {
         if (root != null) {
-            inOrder(root.left);
-            inOrder(root.right);
+            postOrder(root.left);
+            postOrder(root.right);
             System.out.print(root.key + " ");
         }
     }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SearchTreeApplication {
+public class AVLTreeApplication {
 
     public static void main(String[] args) {
 
@@ -12,13 +12,13 @@ public class SearchTreeApplication {
             if(!sc.hasNext())
             {
                 System.out.println( "FEHLER: Leere Eingabe. Die Datei muss mindestens eine Zeile mit durch Kommas getrennte Integer enthalten.");
-                System.out.println("Aufruf: java SearchTreeApplication < <filename>");
+                System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                 return;
             }
 
             String firstZeile = sc.next();
 
-           // System.out.println(firstZeile);
+            // System.out.println(firstZeile);
 
             switch (firstZeile)
             {
@@ -26,7 +26,7 @@ public class SearchTreeApplication {
                     if(!sc.hasNext())
                     {
                         System.out.println( "FEHLER: Traversierung, aber keine Integer gefunden. Die Datei muss mindestens eine Zeile mit durch Kommas getrennte Integer enthalten.");
-                        System.out.println("Aufruf: java SearchTreeApplication < <filename>");
+                        System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                         return;
                     }
 
@@ -49,7 +49,7 @@ public class SearchTreeApplication {
                                 catch (Exception e)
                                 {
                                     System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                                    System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                                    System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                                     return;
                                 }
                             }
@@ -60,15 +60,14 @@ public class SearchTreeApplication {
                                 array[i] = numbers.get(i);
                             }
 
-                            SearchTree st = new SearchTree(array);
-                            System.out.println("Hoehe: "+ st.maxDepth(SearchTree.root));
-                            SearchTree.inOrder(SearchTree.root);
-                            System.out.println();
+                            AVLTree avlt = new AVLTree(array);
+                            avlt.printInOrder();
+                            System.out.println("----------");
                         }
                         else
                         {
                             System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                            System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                            System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                             return;
                         }
 
@@ -79,7 +78,7 @@ public class SearchTreeApplication {
                     if(!sc.hasNext())
                     {
                         System.out.println( "FEHLER: Traversierung, aber keine Integer gefunden. Die Datei muss mindestens eine Zeile mit durch Kommas getrennte Integer enthalten.");
-                        System.out.println("Aufruf: java SearchTreeApplication < <filename>");
+                        System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                         return;
                     }
 
@@ -103,7 +102,7 @@ public class SearchTreeApplication {
                                 catch (Exception e)
                                 {
                                     System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                                    System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                                    System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                                     return;
                                 }
                             }
@@ -114,15 +113,14 @@ public class SearchTreeApplication {
                                 array[i] = numbers.get(i);
                             }
 
-                            SearchTree st = new SearchTree(array);
-                            System.out.println("Hoehe: "+ st.maxDepth(SearchTree.root));
-                            SearchTree.preOrder(SearchTree.root);
-                            System.out.println();
+                            AVLTree avlt = new AVLTree(array);
+                            avlt.printPreOrder();
+                            System.out.println("----------");
                         }
                         else
                         {
                             System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                            System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                            System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                             return;
                         }
 
@@ -133,7 +131,7 @@ public class SearchTreeApplication {
                     if(!sc.hasNext())
                     {
                         System.out.println( "FEHLER: Traversierung, aber keine Integer gefunden. Die Datei muss mindestens eine Zeile mit durch Kommas getrennte Integer enthalten.");
-                        System.out.println("Aufruf: java SearchTreeApplication < <filename>");
+                        System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                         return;
                     }
 
@@ -157,7 +155,7 @@ public class SearchTreeApplication {
                                 catch (Exception e)
                                 {
                                     System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                                    System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                                    System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                                     return;
                                 }
                             }
@@ -168,15 +166,14 @@ public class SearchTreeApplication {
                                 array[i] = numbers.get(i);
                             }
 
-                            SearchTree st = new SearchTree(array);
-                            System.out.println("Hoehe: "+ st.maxDepth(SearchTree.root));
-                            SearchTree.postOrder(SearchTree.root);
-                            System.out.println();
+                            AVLTree avlt = new AVLTree(array);
+                            avlt.printPostOrder();
+                            System.out.println("----------");
                         }
                         else
                         {
                             System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                            System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                            System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                             return;
                         }
 
@@ -198,7 +195,7 @@ public class SearchTreeApplication {
                             catch (Exception e)
                             {
                                 System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                                System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                                System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                                 return;
                             }
                         }
@@ -209,17 +206,16 @@ public class SearchTreeApplication {
                             array[i] = numbers.get(i);
                         }
 
-                        SearchTree st = new SearchTree(array);
-                        System.out.println("Hoehe: "+ st.maxDepth(SearchTree.root));
-                        SearchTree.inOrder(SearchTree.root);
-                        System.out.println();
+                        AVLTree avlt = new AVLTree(array);
+                        avlt.printInOrder();
+                        System.out.println("----------");
 
 
 
                         if(!sc.hasNext())
                         {
                             System.out.println( "FEHLER: Traversierung, aber keine Integer gefunden. Die Datei muss mindestens eine Zeile mit durch Kommas getrennte Integer enthalten.");
-                            System.out.println("Aufruf: java SearchTreeApplication < <filename>");
+                            System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                             return;
                         }
 
@@ -243,7 +239,7 @@ public class SearchTreeApplication {
                                     catch (Exception e)
                                     {
                                         System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                                        System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                                        System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                                         return;
                                     }
                                 }
@@ -254,15 +250,14 @@ public class SearchTreeApplication {
                                     array1[i] = numbers1.get(i);
                                 }
 
-                                SearchTree st1 = new SearchTree(array1);
-                                System.out.println("Hoehe: "+ st1.maxDepth(SearchTree.root));
-                                SearchTree.inOrder(SearchTree.root);
-                                System.out.println();
+                                AVLTree avlt1 = new AVLTree(array1);
+                                avlt1.printInOrder();
+                                System.out.println("----------");
                             }
                             else
                             {
                                 System.out.println( "FEHLER: Zeilen duerfen nur aus Integern bestehen.");
-                                System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                                System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                                 return;
                             }
 
@@ -273,7 +268,7 @@ public class SearchTreeApplication {
                     else
                     {
                         System.out.println( "FEHLER: Unbekannte Traversierung: " + firstZeile);
-                        System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+                        System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
                     }
 
             }
@@ -282,7 +277,7 @@ public class SearchTreeApplication {
         }
         catch (Exception e) //FileNotFoundException
         {
-            System.out.println( "Aufruf: java SearchTreeApplication < <filename>");
+            System.out.println( "Aufruf: java AVLTreeApplication < <filename>");
         }
 
 
